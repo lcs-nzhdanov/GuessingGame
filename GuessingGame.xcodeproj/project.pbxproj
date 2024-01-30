@@ -8,17 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		829BA23F2B698C9D003BE2BD /* GuessingGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829BA23E2B698C9D003BE2BD /* GuessingGameApp.swift */; };
-		829BA2412B698C9D003BE2BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829BA2402B698C9D003BE2BD /* ContentView.swift */; };
 		829BA2432B698CA0003BE2BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 829BA2422B698CA0003BE2BD /* Assets.xcassets */; };
 		829BA2462B698CA0003BE2BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 829BA2452B698CA0003BE2BD /* Preview Assets.xcassets */; };
+		829BA24E2B698D8A003BE2BD /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829BA24D2B698D8A003BE2BD /* GameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		829BA23B2B698C9D003BE2BD /* GuessingGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessingGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		829BA23E2B698C9D003BE2BD /* GuessingGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessingGameApp.swift; sourceTree = "<group>"; };
-		829BA2402B698C9D003BE2BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		829BA2422B698CA0003BE2BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		829BA2452B698CA0003BE2BD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		829BA24D2B698D8A003BE2BD /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +51,8 @@
 		829BA23D2B698C9D003BE2BD /* GuessingGame */ = {
 			isa = PBXGroup;
 			children = (
+				829BA24C2B698D70003BE2BD /* Views */,
 				829BA23E2B698C9D003BE2BD /* GuessingGameApp.swift */,
-				829BA2402B698C9D003BE2BD /* ContentView.swift */,
 				829BA2422B698CA0003BE2BD /* Assets.xcassets */,
 				829BA2442B698CA0003BE2BD /* Preview Content */,
 			);
@@ -65,6 +65,14 @@
 				829BA2452B698CA0003BE2BD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		829BA24C2B698D70003BE2BD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				829BA24D2B698D8A003BE2BD /* GameView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				829BA2412B698C9D003BE2BD /* ContentView.swift in Sources */,
+				829BA24E2B698D8A003BE2BD /* GameView.swift in Sources */,
 				829BA23F2B698C9D003BE2BD /* GuessingGameApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
