@@ -17,7 +17,9 @@ struct GameView: View {
     @State var key = ""
     
     // What number the computer wants the user to guess
-    @State var target = Int.random(in: 1...100)
+    @State var target = Int.random(
+        in: 1...100
+    )
     
     // Feedback to the user on what to try next
     @State var feedback = ""
@@ -47,54 +49,88 @@ struct GameView: View {
         "ninety-one": 91, "ninety-two": 92, "ninety-three": 93, "ninety-four": 94, "ninety-five": 95,
         "ninety-six": 96, "ninety-seven": 97, "ninety-eight": 98, "ninety-nine": 99, "one hundred": 100
     ]
-
+    
     
     // MARK: Computed properties
     var body: some View {
         
         NavigationStack {
-            VStack(spacing: 30) {
+            VStack(
+                spacing: 30
+            ) {
                 
-                Text("I'm thinking of a number between 1 and 100.")
+                Text(
+                    "I'm thinking of a number between 1 and 100."
+                )
                 
-                Text("Guess what it is!")
-                    .font(.headline)
+                Text(
+                    "Guess what it is!"
+                )
+                .font(
+                    .headline
+                )
                 
-                TextField("Make a guess", text: $givenInput)
+                TextField(
+                    "Make a guess",
+                    text: $givenInput
+                )
                 
                 Button {
                     checkGuess()
                 } label: {
-                    Text("Submit Guess")
-                }
-                .buttonStyle(.borderedProminent)
-                
-                Text(feedback)
-                    .font(
-                        .custom(
-                            "BradleyHandITCTT-Bold",
-                            size: 24.0,
-                            relativeTo: .title3
-                        )
+                    Text(
+                        "Submit Guess"
                     )
-                    
-
+                }
+                .buttonStyle(
+                    .borderedProminent
+                )
+                
+                Text(
+                    feedback
+                )
+                .font(
+                    .custom(
+                        "BradleyHandITCTT-Bold",
+                        size: 24.0,
+                        relativeTo: .title3
+                    )
+                )
+                
+                
                 Button {
                     reset()
                 } label: {
-                    Text("Reset")
+                    Text(
+                        "Reset"
+                    )
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(.red)
-
+                .buttonStyle(
+                    .borderedProminent
+                )
+                .tint(
+                    .red
+                )
+                
                 
                 // Show the user's guesses
-                Text("Guesses made")
-                    .font(.title3.smallCaps())
+                Text(
+                    "Guesses made"
+                )
+                .font(
+                    .title3.smallCaps()
+                )
                 ScrollView {
-                    VStack(spacing: 5) {
-                        ForEach(guessesMade, id: \.self) { currentGuess in
-                            Text("\(currentGuess)")
+                    VStack(
+                        spacing: 5
+                    ) {
+                        ForEach(
+                            guessesMade,
+                            id: \.self
+                        ) { currentGuess in
+                            Text(
+                                "\(currentGuess)"
+                            )
                             Divider()
                         }
                     }
@@ -104,36 +140,49 @@ struct GameView: View {
                 
             }
             .padding()
-            .navigationTitle("Guessing Game")
+            .navigationTitle(
+                "Guessing Game"
+            )
             
         }
-
+        
     }
     
     // MARK: Functions
     func checkGuess() {
-        guard let number = Int(givenInput) else {
-            guard let numberFromString = stringToInt(numberString: givenInput.lowercased()) else {
+        guard let number = Int(
+            givenInput
+        ) else {
+            guard let numberFromString = stringToInt(
+                numberString: givenInput.lowercased()
+            ) else {
                 feedback = "Please provide a valid number or its word representation."
                 return
             }
             
             selectedNumber = numberFromString
-            processGuess(selectedNumber: selectedNumber)
+            processGuess(
+                selectedNumber: selectedNumber
+            )
             return
             
         }
         
         selectedNumber = number
-        processGuess(selectedNumber: selectedNumber)
+        processGuess(
+            selectedNumber: selectedNumber
+        )
     }
-
-    func stringToInt(numberString: String) -> Int? {
+    
+    func stringToInt(
+        numberString: String
+    ) -> Int? {
         return stringNumbers[numberString]
     }
-
-    // A new function to process the guess now that selectedNumber is available
-    func processGuess(selectedNumber: Int) {
+    
+    func processGuess(
+        selectedNumber: Int
+    ) {
         // Provide feedback to the user
         if target < selectedNumber {
             feedback = "My number is lower!"
@@ -143,18 +192,21 @@ struct GameView: View {
             feedback = "Correct! You've guessed the number!"
         }
         
-        // Save the user's guess
-        guessesMade.append(selectedNumber)
+        guessesMade.append(
+            selectedNumber
+        )
     }
-
+    
     // Start a new game
     func reset() {
-
+        
         // Start the user back at 50
         givenInput = ""
         
         // Have the computer guess a new number
-        target = Int.random(in: 1...100)
+        target = Int.random(
+            in: 1...100
+        )
         
         // Reset feedback
         feedback = ""
